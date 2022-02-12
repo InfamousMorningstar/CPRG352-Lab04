@@ -12,6 +12,7 @@ public class Note {
     private String content;
 
     public Note() {
+       
     }
 
     public Note(String title, String content) {
@@ -40,8 +41,8 @@ public class Note {
         BufferedReader br = new BufferedReader(new FileReader(new File(path)));
         
         String nTitle = br.readLine();
-        String nContent = br.readLine();
-        String nextLine = br.readLine();
+        String nContent = "";
+        String nextLine = "";
         
         while ((nextLine = br.readLine()) != null) {
             nContent += nextLine + "<br>";
@@ -53,12 +54,15 @@ public class Note {
     }
     
     
-    public void editNote(String path, String givenTitle, String givenContent) throws IOException {
-        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path, false)))) {
-            String writeToFile = givenTitle + givenContent;
+    public void editNote(String path, String givenTitle, String givenContents) throws IOException{
+        
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path, false)));
+        String write = givenTitle + "\n" + givenContents;
             
-            pw.write(writeToFile);
+            
+            pw.write(write);
+            pw.close();
         }
     }
     
-}
+

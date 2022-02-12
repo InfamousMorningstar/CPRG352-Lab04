@@ -38,7 +38,7 @@
         </form>
         
         <footer>
-            <a href="note.txt">View Note</a>
+            <a href="note?view">View Note</a>
             
         </footer>
         
